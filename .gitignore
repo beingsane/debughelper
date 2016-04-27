@@ -5,3 +5,8 @@
 /build/epub
 /build/phingext
 /build/tools
+
+/plugins/*/*/language/en-GB
+plugins/akeebadebug/systeminfo/systeminfo.xml
+
+release/*

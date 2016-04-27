@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<project name="DebugHelper" description="Debug Helper" default="git" >
+    <import file="${phing.dir}/../../buildfiles/phing/common.xml" />
+
+    <!--
+    ====================================================================================================
+    Tasks - General
+    ====================================================================================================
+    -->
+
+    <target name="all" description="Makes everything"
+            depends="git,lang">
+    </target>
+
+    <target name="git" description="Makes only packages, not the documentation"
+            depends="new-release,setup-properties,component-package">
+    </target>
+
+	<!--
+	====================================================================================================
+	Tasks - Joomla! packages
+	====================================================================================================
+	-->
+
+	<target name="component-package" description="Component package build"
+		depends="new-release,setup-properties">
+
+		<copy file="./templates/version.php" tofile="${dirs.plugins}/akeebadebug/systeminfo/version.php" overwrite="true">
+			<filterchain>
+				<replacetokens begintoken="##" endtoken="##">
+					<token key="DATE" value="${build.date}" />
+					<token key="VERSION" value="${version}" />
+				</replacetokens>
+			</filterchain>
+		</copy>
+
+		<copy file="./templates/systeminfo.xml" tofile="${dirs.plugins}/akeebadebug/systeminfo/systeminfo.xml" overwrite="true">
+			<filterchain>
+				<replacetokens begintoken="##" endtoken="##">
+					<token key="DATE" value="${build.date}" />
+					<token key="VERSION" value="${version}" />
+				</replacetokens>
+			</filterchain>
+		</copy>
+
+		<zipme basedir="${dirs.plugins}" prefix="plugins/" destfile="${dirs.release}/plg_akeebadebug_systeminfo-${version}-core.zip" includeemptydirs="true">
+			<fileset dir="${dirs.plugins}">
+				<include name="akeebadebug/systeminfo/*" />
+			</fileset>
+		</zipme>
+    </target>
+
+	<target name="documentation">
+		<echo>There are no docs for this project</echo>
+	</target>
+</project>
