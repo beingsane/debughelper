@@ -43,9 +43,9 @@
 			</filterchain>
 		</copy>
 
-		<zipme basedir="${dirs.plugins}" prefix="plugins/" destfile="${dirs.release}/plg_akeebadebug_systeminfo-${version}-core.zip" includeemptydirs="true">
-			<fileset dir="${dirs.plugins}">
-				<include name="akeebadebug/systeminfo/*" />
+		<zipme basedir="${dirs.plugins}/akeebadebug/systeminfo" prefix="systeminfo/" destfile="${dirs.release}/plg_akeebadebug_systeminfo-${version}.zip" includeemptydirs="true">
+			<fileset dir="${dirs.plugins}/akeebadebug/systeminfo">
+				<include name="**" />
 			</fileset>
 		</zipme>
     </target>
