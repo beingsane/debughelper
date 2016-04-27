@@ -8,5 +8,6 @@
 
 /plugins/*/*/language/en-GB
 plugins/akeebadebug/systeminfo/systeminfo.xml
+plugins/akeebadebug/systeminfo/version.php
 
 release/*
