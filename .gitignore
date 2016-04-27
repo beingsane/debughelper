@@ -1,0 +1,7 @@
+/.idea/*
+
+/build/bin
+/build/buildlang
+/build/epub
+/build/phingext
+/build/tools
