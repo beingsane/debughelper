@@ -47,7 +47,11 @@ class plgAkeebadebugSysteminfo extends JPlugin
 	 */
 	private function genericInfo()
 	{
-		return array();
+		$info['jversion'] = JVERSION;
+		$info['php'] 	  = PHP_VERSION;
+		$info['db']	 	  = JFactory::getDbo()->getVersion();
+
+		return $info;
 	}
 
 	/**
@@ -57,7 +61,9 @@ class plgAkeebadebugSysteminfo extends JPlugin
 	 */
 	private function akeebaBackupInfo()
 	{
-		return array();
+		$info['ab_version'] = defined('AKEEBA_VERSION') ? AKEEBA_VERSION : '';
+
+		return $info;
 	}
 
 	/**
@@ -67,7 +73,9 @@ class plgAkeebadebugSysteminfo extends JPlugin
 	 */
 	private function adminToolsInfo()
 	{
-		return array();
+		$info['at_version'] = defined('ADMINTOOLS_VERSION') ? ADMINTOOLS_VERSION : '';
+
+		return $info;
 	}
 
 	/**
@@ -77,6 +85,8 @@ class plgAkeebadebugSysteminfo extends JPlugin
 	 */
 	private function atsInfo()
 	{
-		return array();
+		$info['ats_version'] = defined('ATS_VERSION') ? ATS_VERSION : '';
+
+		return $info;
 	}
 }
